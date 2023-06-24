@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data List</title>
+</head>
+<body>
+  <h1>Data List</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Text Box</th>
+        <th>Multi-Text Box</th>
+        <th>Dropdown</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% savedData.forEach(data => { %>
+        <tr>
+          <td><%= data.textbox %></td>
+          <td><%= data.multitextbox %></td>
+          <td><%= data.dropdown %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</body>
+</html>

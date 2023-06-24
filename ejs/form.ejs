@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form</title>
+</head>
+<body>
+  <h1>Form</h1>
+  <form action="/submit" method="post">
+    <label for="textbox">Text Box:</label>
+    <input type="text" id="textbox" name="textbox" required>
+
+    <label for="multitextbox">Multi-Text Box:</label>
+    <textarea id="multitextbox" name="multitextbox" required></textarea>
+
+    <label for="dropdown">Dropdown:</label>
+    <select id="dropdown" name="dropdown" required>
+      <option value="">Select an option</option>
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+      <option value="option3">Option 3</option>
+    </select>
+
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

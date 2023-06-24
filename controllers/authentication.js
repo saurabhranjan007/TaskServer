@@ -1,7 +1,7 @@
 const basicAuth = require('basic-auth')
 
 const Authentication = (req, res, next) => {
-    console.log(`AUthenticating...`);
+    console.log(`Authenticating...`);
 
     try {
         // Un-Auth Requests 
@@ -9,7 +9,7 @@ const Authentication = (req, res, next) => {
             console.log(`Un-Auth fired!`);
             // res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
             return res.status(400).json({
-                Message: 'Unauthorized Request..'
+                Message: 'Un-Authenticated Request..'
             })
         }
 
@@ -33,7 +33,7 @@ const Authentication = (req, res, next) => {
         console.error(`Error: ${err.message}`);
 
         return res.status(400).json({
-            Message: 'Error Authorizing Requeest',
+            Message: 'Error Authenticating Request',
             Error: err.message, 
         })
     }
