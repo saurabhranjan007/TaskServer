@@ -2,7 +2,7 @@ const { json } = require('body-parser');
 const cron = require('node-cron')
 
 cron.schedule('*/30 * * * * *', () => {
-    console.log(`Cron job triggered!!`);
+    console.log(`Cron job triggered!! => (30s)`);
 
     const mockReq = { query: {} }
     const mockRes = {
@@ -12,9 +12,21 @@ cron.schedule('*/30 * * * * *', () => {
     getDataCall(mockReq, mockRes); 
 });
 
+cron.schedule('* * * * *', () => {
+    console.log(`Cron JOb Triggered!! => (1m)`);
+
+    const mockReq = { body: {} }
+    const mockRes = {
+        status: (statusCode) => mockRes,
+        json: (data) => console.log(data)
+    }
+    jsonPostData(mockReq, mockRes); 
+})
+
 // GET Data Call 
 const getDataCall = async(req, res) => {
     console.log(`getDataCalled!!`);
+
     try {
         // param data 
         const dataParams = {}
@@ -37,8 +49,9 @@ const getDataCall = async(req, res) => {
 }
 
 // POST JSON Data Call
-const josnPostData = async(req, res) => {
+const jsonPostData = async(req, res) => {
     console.log(`jsonPostDataCalled!!`);
+    
     try {
         // req body data 
         const reqBodyData = {}
@@ -63,6 +76,7 @@ const josnPostData = async(req, res) => {
 
 // POST FORM Data Call
 const formDataPost = async(req, res) => {
+    console.log(`formDataPost Triggered!!`);
 
     try {
         const formData = {}
@@ -85,5 +99,5 @@ const formDataPost = async(req, res) => {
 }
 
 exports.getDataCall = getDataCall; 
-exports.josnPostData = josnPostData; 
+exports.jsonPostData = jsonPostData; 
 exports.formDataPost = formDataPost; 

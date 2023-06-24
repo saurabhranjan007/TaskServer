@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const cron = require('node-cron')
 
 const getRoutes = require("./routes/task-routes")
-const { getDataCall, josnPostData, formDataPost } = require('./controllers/task-controller')
+const { getDataCall, jsonPostData, formDataPost } = require('./controllers/task-controller')
 
 const app = express();
 app.use(bodyParser.json());
